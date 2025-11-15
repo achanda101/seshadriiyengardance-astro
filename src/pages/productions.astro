@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroFixed from '../components/HeroFixed.astro';
+import YouTube from '../components/YouTube.astro';
+import EmblaCarousel from '../components/EmblaCarousel.astro';
+
+const productionSlides = [
+  {
+    image: 'https://res.cloudinary.com/driyengar/image/upload/v1631219724/1_STAGE_REHEARSAL_jv1upm.jpg',
+    imageWebp: 'https://res.cloudinary.com/driyengar/image/upload/v1629180948/1_STAGE_REHEARSAL_gbs2s2.webp',
+    alt: 'Rehearsal for Sri Ramanujacharya Production',
+    caption: 'Stage Rehearsal'
+  },
+  {
+    image: 'https://res.cloudinary.com/driyengar/image/upload/v1631219723/STUDENTS_1_ebtr2x.jpg',
+    imageWebp: 'https://res.cloudinary.com/driyengar/image/upload/v1629180947/STUDENTS_1_lvxqxl.webp',
+    alt: 'Students at Rehearsal',
+    caption: 'Students at Rehearsal'
+  },
+  {
+    image: 'https://res.cloudinary.com/driyengar/image/upload/v1631219723/STUDENTS_2_jnc9wb.jpg',
+    imageWebp: 'https://res.cloudinary.com/driyengar/image/upload/v1629180948/STUDENTS_2_lty9ox.webp',
+    alt: 'Students at Rehearsal',
+    caption: 'Students at Rehearsal'
+  },
+  {
+    image: 'https://res.cloudinary.com/driyengar/image/upload/v1631219724/STUDENTS_3_w7gs6h.jpg',
+    imageWebp: 'https://res.cloudinary.com/driyengar/image/upload/v1629180947/STUDENTS_3_xfyko1.webp',
+    alt: 'Students at Rehearsal',
+    caption: 'Students at Rehearsal'
+  },
+  {
+    image: 'https://res.cloudinary.com/driyengar/image/upload/v1631219723/STUDENTS_4_f42tcd.jpg',
+    imageWebp: 'https://res.cloudinary.com/driyengar/image/upload/v1629180947/STUDENTS_4_pmpn6l.webp',
+    alt: 'Students at Rehearsal',
+    caption: 'Students at Rehearsal'
+  },
+  {
+    image: 'https://res.cloudinary.com/driyengar/image/upload/v1631221145/opening_pic_on_the_scroll._ktpecx.jpg',
+    imageWebp: 'https://res.cloudinary.com/driyengar/image/upload/v1629180969/opening_pic_on_the_scroll._iwn4ew.webp',
+    alt: 'Invitation Card for Sri Ramanujacharya Production',
+    caption: 'Invitation Card for Sri Ramanujacharya Production'
+  },
+  {
+    image: 'https://res.cloudinary.com/driyengar/image/upload/v1631221145/pic_1_d9lwbq.jpg',
+    imageWebp: 'https://res.cloudinary.com/driyengar/image/upload/v1629180969/pic_1_k2pozo.webp',
+    alt: 'Pamphlet for Sri Ramanujacharya Production',
+    caption: 'Pamphlet for Sri Ramanujacharya Production'
+  },
+  {
+    image: 'https://res.cloudinary.com/driyengar/image/upload/v1631221145/pic_2_Inauguration_Melote_giw1dx.jpg',
+    imageWebp: 'https://res.cloudinary.com/driyengar/image/upload/v1629180969/pic_2_Inauguration_Melote_pdd7ww.webp',
+    alt: 'Inauguration of Sri Ramanujacharya Production',
+    caption: 'Inauguration of Sri Ramanujacharya Production'
+  },
+  {
+    image: 'https://res.cloudinary.com/driyengar/image/upload/v1631221145/pic_3_Inauguraral_event_Melkote_bkdcdv.jpg',
+    imageWebp: 'https://res.cloudinary.com/driyengar/image/upload/v1629180969/pic_3_Inauguraral_event_Melkote_mkjekt.webp',
+    alt: 'Inauguration of Sri Ramanujacharya Production',
+    caption: 'Inaugural event for Sri Ramanujacharya Production'
+  }
+];
+---
+
+<BaseLayout title="Productions | Seshadri Iyengar">
+  <HeroFixed
+    text="Productions"
+    heroDeskWebp="url('https://res.cloudinary.com/driyengar/image/upload/v1629178501/production-banner-desk_hw3i3j.webp')"
+    heroTabWebp="url('https://res.cloudinary.com/driyengar/image/upload/v1629178501/production-banner-ipad_o6vdoh.webp')"
+    heroMobWebp="url('https://res.cloudinary.com/driyengar/image/upload/v1629178501/production-banner-mob_yxnovs.webp')"
+    heroDesk="url('https://res.cloudinary.com/driyengar/image/upload/v1631218136/production-banner-desk_zfmpdr.png')"
+    heroTab="url('https://res.cloudinary.com/driyengar/image/upload/v1631218136/production-banner-ipad_orcqy6.png')"
+    heroMob="url('https://res.cloudinary.com/driyengar/image/upload/v1631218136/production-banner-mob_hltpcb.png')"
+  />
+
+  <div class="bg-white py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-lg leading-relaxed mb-8">
+          A full length dance – theatre production is an integral part of a dancer's journey. They bring in a different dimension to the artists approach to choreography, pose interesting challenges, starting with a script and organising the music keeping the essence of the character, bringing in dance elements where necessary, lighting, costume, props and settings, and visualising the characters and choosing dancers who would do justice to those roles. All of these and more add up to direction and choreography of a dance production.
+        </p>
+        <ul class="space-y-4 list-disc list-inside">
+          <li class="text-lg">
+            <strong>Pragathi (2004)</strong><br />
+            <span class="ml-6 text-gray-700">a commissioned project for the Arathi School of dance, Dallas, Texas, Sponsored by ICHF, Dallas</span>
+          </li>
+          <li class="text-lg">
+            <strong>Sri Ramanujacharya – The Timeless Legand (2016)</strong><br />
+            <span class="ml-6 text-gray-700">Produced by the Sri Ramanuja Sahasramanotsava Trust, Melkot.</span>
+          </li>
+          <li class="text-lg">
+            <strong>Narasimha Vaibhava (2017)</strong><br />
+            <span class="ml-6 text-gray-700">Narasimha Temple Trust, Malleshwaram.</span>
+          </li>
+          <li class="text-lg">
+            <strong>Namma Nadu (2018)</strong><br />
+            <span class="ml-6 text-gray-700">For Shivrathri celebration, Sponsored by the Sri Dr. AshwatNarayan, MLA Malleshwaram.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mt-16 max-w-4xl mx-auto">
+        <h1 class="text-4xl font-vidaloka text-center mb-8">
+          Sri RAMANUJACHARYA - THE TIMELESS LEGEND
+        </h1>
+        <YouTube id="ksMA6kr6dn0" />
+      </div>
+
+      <div class="mt-16">
+        <h2 class="text-3xl font-vidaloka text-center mb-8">
+          Rehearsal, Inauguration, Still photos of the production
+        </h2>
+        <EmblaCarousel slides={productionSlides} autoplay={true} delay={4000} containImages={true} />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

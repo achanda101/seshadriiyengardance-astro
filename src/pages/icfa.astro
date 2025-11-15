@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroFixed from '../components/HeroFixed.astro';
+---
+
+<BaseLayout title="ICFA | Seshadri Iyengar">
+  <HeroFixed
+    text="ICFA"
+    heroDesk="url('https://res.cloudinary.com/driyengar/image/upload/v1628862134/homepage-ICFA-section_nuwemg.jpg')"
+    heroTab="url('https://res.cloudinary.com/driyengar/image/upload/v1628862134/homepage-ICFA-section_nuwemg.jpg')"
+    heroMob="url('https://res.cloudinary.com/driyengar/image/upload/v1628862134/homepage-ICFA-section_nuwemg.jpg')"
+  />
+
+  <div class="bg-white py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto space-y-6">
+        <h1 class="text-4xl font-vidaloka mb-8">Iyengar Centre for Fine Arts</h1>
+        <p class="text-lg leading-relaxed">
+          ICFA reflects Dr. Iyengar's interest and journey into arts and his holistic approach to life.
+        </p>
+        <p class="text-lg leading-relaxed">
+          The centre is dedicated to promoting and preserving the classical art forms of India,
+          with a special focus on Bharatanatyam and Yoga.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

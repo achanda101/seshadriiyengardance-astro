@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import YouTube from '../components/YouTube.astro';
+---
+
+<BaseLayout title="Videos | Seshadri Iyengar" noHero={true}>
+  <div class="pt-24 lg:pt-32 bg-white py-24">
+    <div class="container mx-auto px-4">
+      <h1 class="text-5xl font-vidaloka text-center mb-12">Video Gallery</h1>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div>
+          <YouTube id="38xTjRJgBcs" />
+          <div class="text-center mt-4 text-lg font-merriweather">
+            Samskruthi Rasabhinaya Festival July 2022
+          </div>
+        </div>
+        <div>
+          <YouTube id="AiB01WjIyAw" />
+          <div class="text-center mt-4 text-lg font-merriweather">
+            Varnam - Karaharapriya - Aadi Artist
+          </div>
+        </div>
+        <div>
+          <YouTube id="Py-n3FU2zOk" />
+          <div class="text-center mt-4 text-lg font-merriweather">
+            Student Testimonial
+          </div>
+        </div>
+        <div>
+          <YouTube id="0FnM01mtmkM" />
+          <div class="text-center mt-4 text-lg font-merriweather">
+            Student Testimonial
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroFixed from '../components/HeroFixed.astro';
+---
+
+<BaseLayout title="Profile | Seshadri Iyengar">
+  <HeroFixed
+    text="Profile"
+    heroDesk="url('https://res.cloudinary.com/driyengar/image/upload/v1628862134/homepage-profile-section_pghwpq.jpg')"
+    heroTab="url('https://res.cloudinary.com/driyengar/image/upload/v1628862134/homepage-profile-section_pghwpq.jpg')"
+    heroMob="url('https://res.cloudinary.com/driyengar/image/upload/v1628862134/homepage-profile-section_pghwpq.jpg')"
+  />
+
+  <div class="bg-white py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto space-y-8">
+        <h1 class="text-4xl font-vidaloka mb-8">Personal Profile</h1>
+        <p class="text-lg leading-relaxed">
+          <strong>Dr. Seshadri Iyengar</strong> is a freelance, Neo-Classical Bharatnatyam dancer,
+          teacher and choreographer, a Homoeopathic Physician and Yoga instructor based in Bangalore.
+        </p>
+        <p class="text-lg leading-relaxed">
+          He is an empanelled artist with the Indian Council for Cultural Relations (ICCR).
+        </p>
+        <p class="text-lg leading-relaxed">
+          As the <strong>Artistic Director of the Iyengar Centre for Fine Arts</strong> he conducts
+          classes in Bharatanatyam and Yoga in Bangalore, India.
+        </p>
+        <p class="text-lg leading-relaxed">
+          Last but not the least; Dr. Seshadri Iyengar strongly believes that dance is beyond "form" and "gender".
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
