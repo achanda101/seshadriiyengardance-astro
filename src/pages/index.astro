@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroVideo from '../components/HeroVideo.astro';
+import YouTube from '../components/YouTube.astro';
+---
+
+<BaseLayout title="Dr Seshadri Iyengar" homePage={true}>
+  <HeroVideo
+    videoWebm="https://res.cloudinary.com/driyengar/video/upload/v1628559729/homepage-banner-right-and-down_fdjtw6.webm"
+    videoMp4="https://res.cloudinary.com/driyengar/video/upload/v1630987787/homepage-banner-right-and-down-4mb_whllg8.mp4"
+  />
+
+  <!-- Section 1 - ICFA -->
+  <div class="relative bg-gradient-to-br from-gray-900 to-black text-white py-24 lg:py-32 overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJhIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0wIDIwTDIwIDBNMjAgMjBMMCA" opacity="0.05"></div>
+    <div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1 space-y-6">
+          <h1 class="text-4xl lg:text-5xl font-vidaloka">Iyengar Center for Fine Arts</h1>
+          <p class="text-lg leading-relaxed">
+            ICFA reflects Dr. Iyengar's interest and journey into arts and his
+            holistic approach to life.
+          </p>
+          <p>
+            <a href="/icfa" class="fancy-link --white text-lg font-semibold">
+              Read More
+            </a>
+          </p>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+            <img
+              src="https://res.cloudinary.com/driyengar/image/upload/v1628862134/homepage-ICFA-section_nuwemg.jpg"
+              alt="ICFA logo"
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 - Profile -->
+  <div class="relative bg-gradient-to-br from-gray-800 to-gray-900 text-white py-24 lg:py-32">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+            <img
+              src="https://res.cloudinary.com/driyengar/image/upload/v1628862134/homepage-profile-section_pghwpq.jpg"
+              alt="Seshadri Iyengar seated in a dance pose"
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h1 class="text-4xl lg:text-5xl font-vidaloka">Profile</h1>
+          <p class="text-lg leading-relaxed">
+            He strongly believes that dance is beyond "form" and "gender".
+          </p>
+          <p>
+            <a href="/profile" class="fancy-link --white text-lg font-semibold">
+              Read More
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 - Training -->
+  <div class="relative bg-gradient-to-br from-gray-900 to-black text-white py-24 lg:py-32">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1 space-y-6">
+          <h1 class="text-4xl lg:text-5xl font-vidaloka">Training</h1>
+          <p class="text-lg leading-relaxed">
+            On-going classes are held in Bharatnatyam, Yoga and Body Kinetics at ICFA.
+            <br /><br />
+            Holistic Approach - Introduction to the technique and grammar of dance,
+            Yoga asana - awareness towards the body, breath etc.
+          </p>
+          <p>
+            <a href="/training" class="fancy-link --white text-lg font-semibold">
+              Read More
+            </a>
+          </p>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+            <picture>
+              <source
+                srcset="https://res.cloudinary.com/driyengar/image/upload/v1629473759/training_h0k1fa.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="https://res.cloudinary.com/driyengar/image/upload/v1631213586/training_uifyui.jpg"
+                type="image/jpeg"
+              />
+              <img
+                src="https://res.cloudinary.com/driyengar/image/upload/v1629473759/training_h0k1fa.webp"
+                alt="Students from the training class at ICFA"
+                class="w-full h-auto"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4 - Workshops -->
+  <div class="relative bg-gradient-to-br from-gray-800 to-gray-900 text-white py-24 lg:py-32">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+            <img
+              src="https://res.cloudinary.com/driyengar/image/upload/v1628862682/WORKSHOP-Collage_hqthea.png"
+              alt="Seshadri Iyengar conducting a dance workshop"
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h1 class="text-4xl lg:text-5xl font-vidaloka">Workshops</h1>
+          <p class="text-lg leading-relaxed">
+            He is known for his spontaneous innovative ability to choreograph
+            abstract and content-based works of both contemporary and traditional origin.
+          </p>
+          <p>
+            <a href="/workshops" class="fancy-link --white text-lg font-semibold">
+              Read More
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Section with Images and Videos -->
+  <div class="bg-white py-24 lg:py-32">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div class="rounded-lg overflow-hidden shadow-xl">
+          <picture>
+            <source
+              srcset="https://res.cloudinary.com/driyengar/image/upload/v1630415981/home-bottom-section2_c6ic4j.webp"
+              type="image/webp"
+            />
+            <source
+              srcset="https://res.cloudinary.com/driyengar/image/upload/v1631213786/home-bottom-section2_pbptby.jpg"
+              type="image/jpeg"
+            />
+            <img
+              src="https://res.cloudinary.com/driyengar/image/upload/v1630415981/home-bottom-section2_c6ic4j.webp"
+              alt="Seshadri Iyengar in a dance pose"
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </picture>
+          </div>
+        <div class="rounded-lg overflow-hidden shadow-xl">
+          <picture>
+            <source
+              srcset="https://res.cloudinary.com/driyengar/image/upload/v1630415981/home-bottom-section1_sjkuam.webp"
+              type="image/webp"
+            />
+            <source
+              srcset="https://res.cloudinary.com/driyengar/image/upload/v1631213785/home-bottom-section1_ql2lnj.jpg"
+              type="image/jpeg"
+            />
+            <img
+              src="https://res.cloudinary.com/driyengar/image/upload/v1630415981/home-bottom-section1_sjkuam.webp"
+              alt="Seshadri Iyengar in a dance pose"
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </picture>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div>
+          <YouTube id="38xTjRJgBcs" />
+          <div class="text-center mt-4 text-lg font-merriweather">
+            Samskruthi Rasabhinaya Festival July 2022
+          </div>
+        </div>
+        <div>
+          <YouTube id="AiB01WjIyAw" />
+          <div class="text-center mt-4 text-lg font-merriweather">
+            Varnam - Karaharapriya - Aadi Artist
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mb-16">
+        <a href="/videos" class="fancy-link text-xl font-semibold">
+          Visit Video Gallery
+        </a>
+      </div>
+
+      <h1 class="text-4xl lg:text-5xl font-vidaloka text-center mb-12">
+        Testimonials from Students
+      </h1>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <YouTube id="Py-n3FU2zOk" />
+        </div>
+        <div>
+          <YouTube id="0FnM01mtmkM" />
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

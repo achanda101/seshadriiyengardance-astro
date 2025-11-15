@@ -1,0 +1,68 @@
+---
+interface Props {
+  videoWebm: string;
+  videoMp4: string;
+}
+
+const { videoWebm, videoMp4 } = Astro.props;
+---
+
+<div class="hero-video relative w-full h-screen overflow-hidden -mt-24 lg:-mt-32">
+  <video
+    id="hero-video"
+    class="absolute top-0 left-0 w-full h-full object-cover"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src={videoWebm} type="video/webm" />
+    <source src={videoMp4} type="video/mp4" />
+  </video>
+
+  <div class="absolute bottom-8 right-8 z-10">
+    <button
+      id="volume-toggle"
+      class="w-14 h-14 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-all"
+      aria-label="Toggle audio"
+    >
+      <i class="fas fa-volume-mute text-xl"></i>
+    </button>
+  </div>
+
+  <div class="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+    <img
+      src="/scroll-indicator.png"
+      alt="Scroll down"
+      class="w-8 h-auto animate-bounce"
+    />
+  </div>
+</div>
+
+<script>
+  const heroVideo = document.getElementById('hero-video') as HTMLVideoElement;
+  const volumeToggle = document.getElementById('volume-toggle');
+
+  if (volumeToggle && heroVideo) {
+    volumeToggle.addEventListener('click', () => {
+      heroVideo.muted = !heroVideo.muted;
+      const icon = volumeToggle.querySelector('i');
+      if (icon) {
+        if (heroVideo.muted) {
+          icon.className = 'fas fa-volume-mute text-xl';
+        } else {
+          icon.className = 'fas fa-volume-up text-xl';
+        }
+      }
+    });
+  }
+
+  // Pause video when scrolling down
+  window.addEventListener('scroll', () => {
+    if (heroVideo && window.scrollY > window.innerHeight / 3) {
+      heroVideo.pause();
+    } else if (heroVideo && window.scrollY < window.innerHeight / 3) {
+      heroVideo.play();
+    }
+  });
+</script>

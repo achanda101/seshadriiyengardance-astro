@@ -1,0 +1,146 @@
+---
+interface Slide {
+  image: string;
+  imageWebp?: string;
+  alt: string;
+  caption?: string;
+}
+
+interface Props {
+  slides: Slide[];
+  autoplay?: boolean;
+  delay?: number;
+  containImages?: boolean;
+}
+
+const { slides, autoplay = false, delay = 3000, containImages = false } = Astro.props;
+const carouselId = `carousel-${Math.random().toString(36).substring(7)}`;
+---
+
+<div class={`embla ${carouselId}`} data-autoplay={autoplay} data-delay={delay}>
+  <div class="embla__viewport">
+    <div class="embla__container">
+      {slides.map((slide) => (
+        <div class="embla__slide">
+          <div class="slide-content">
+            <div class={`slide-img ${containImages ? 'contain' : ''}`}>
+              <picture>
+                {slide.imageWebp && (
+                  <source srcset={slide.imageWebp} type="image/webp" />
+                )}
+                <img
+                  src={slide.image}
+                  alt={slide.alt}
+                  class={`w-full ${containImages ? 'object-contain' : 'object-cover'} h-full`}
+                  loading="lazy"
+                />
+              </picture>
+            </div>
+            {slide.caption && (
+              <div class="slide-caption text-center mt-4 text-lg font-merriweather">
+                {slide.caption}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="embla__buttons">
+    <button class="embla__button embla__button--prev" type="button" aria-label="Previous slide">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button class="embla__button embla__button--next" type="button" aria-label="Next slide">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="embla__dots"></div>
+</div>
+
+<style>
+  .slide-img {
+    @apply relative w-full h-96 overflow-hidden rounded-lg;
+  }
+
+  .slide-img.contain {
+    @apply h-[600px];
+  }
+
+  .slide-content {
+    @apply px-4;
+  }
+</style>
+
+<script>
+  import EmblaCarousel from 'embla-carousel';
+  import Autoplay from 'embla-carousel-autoplay';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.embla');
+
+    carousels.forEach((carouselElement) => {
+      const viewport = carouselElement.querySelector('.embla__viewport') as HTMLElement;
+      const prevBtn = carouselElement.querySelector('.embla__button--prev') as HTMLButtonElement;
+      const nextBtn = carouselElement.querySelector('.embla__button--next') as HTMLButtonElement;
+      const dotsContainer = carouselElement.querySelector('.embla__dots') as HTMLElement;
+
+      const autoplayEnabled = carouselElement.getAttribute('data-autoplay') === 'true';
+      const delay = parseInt(carouselElement.getAttribute('data-delay') || '3000');
+
+      const plugins = autoplayEnabled ? [Autoplay({ delay })] : [];
+
+      const embla = EmblaCarousel(viewport, { loop: true }, plugins);
+
+      // Previous/Next buttons
+      prevBtn?.addEventListener('click', () => embla.scrollPrev());
+      nextBtn?.addEventListener('click', () => embla.scrollNext());
+
+      // Update button states
+      const updateButtons = () => {
+        if (prevBtn && nextBtn) {
+          prevBtn.disabled = !embla.canScrollPrev();
+          nextBtn.disabled = !embla.canScrollNext();
+        }
+      };
+
+      // Create dots
+      const createDots = () => {
+        const dots: HTMLButtonElement[] = [];
+        embla.scrollSnapList().forEach((_, index) => {
+          const dot = document.createElement('button');
+          dot.className = 'embla__dot';
+          dot.setAttribute('type', 'button');
+          dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+          dot.addEventListener('click', () => embla.scrollTo(index));
+          dotsContainer.appendChild(dot);
+          dots.push(dot);
+        });
+        return dots;
+      };
+
+      const dots = createDots();
+
+      // Update dots
+      const updateDots = () => {
+        const selected = embla.selectedScrollSnap();
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('is-selected', index === selected);
+        });
+      };
+
+      embla.on('select', updateButtons);
+      embla.on('select', updateDots);
+      embla.on('reInit', updateButtons);
+      embla.on('reInit', updateDots);
+
+      updateButtons();
+      updateDots();
+    });
+  });
+</script>

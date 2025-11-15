@@ -1,0 +1,296 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  homePage?: boolean;
+  noHero?: boolean;
+}
+
+const {
+  title,
+  description = "Dr. Seshadri Iyengar is a freelance, Neo-Classical Bharatnatyam dancer, teacher and choreographer, a Homoeopathic Physician and Yoga instructor based in Bangalore. As the Artistic Director of the Iyengar Centre for Fine Arts he conducts classes in Bharatanatyam and Yoga.",
+  homePage = false,
+  noHero = false
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+
+  <meta name="author" content="Dr. Seshadri Iyengar">
+  <meta name="title" content={title}>
+  <meta name="description" content={description}>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content="https://seshadriiyengardance.com">
+  <meta property="og:image" content="https://res.cloudinary.com/driyengar/image/upload/v1631268408/og-image_qs287k.jpg">
+  <meta property="og:image:alt" content="Iyengar Centre for Fine Arts">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://seshadriiyengardance.com">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content="https://res.cloudinary.com/driyengar/image/upload/v1631268408/og-image_qs287k.jpg">
+  <meta name="twitter:image:alt" content="Iyengar Centre for Fine Arts">
+
+  <link rel="canonical" href="https://seshadriiyengardance.com">
+
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Raleway:wght@400;500;600&family=Tangerine&family=Vidaloka&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+  <link rel="shortcut icon" href="/favicon.png" />
+</head>
+<body>
+
+<!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <!-- Mobile Navigation -->
+    <div class="lg:hidden">
+      <div class={`navbar-mobile transition-all duration-300 ${homePage ? 'bg-transparent' : noHero ? 'bg-black' : 'bg-gradient-to-b from-black/60 to-transparent'}`}>
+        <div class="flex items-center justify-between px-4 h-24">
+          <a href="/" class="logo-box">
+            <img
+              src="https://res.cloudinary.com/driyengar/image/upload/v1509773872/icfa_logo_sml.jpg"
+              alt="Iyengar Centre for Fine Arts logo"
+              class="w-16 h-16 transition-all duration-300"
+              id="logo-mobile"
+              loading="lazy"
+            />
+          </a>
+
+          <button id="mobile-menu-button" class="w-10 h-10 flex flex-col justify-center items-center gap-1.5" aria-label="Toggle menu">
+            <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+            <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+            <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div id="mobile-menu" class="fixed inset-0 bg-black transform translate-x-full transition-transform duration-300 overflow-y-auto" style="padding-top: 6rem;">
+        <div class="flex flex-col p-8 space-y-6">
+          <div class="space-y-4">
+            <a href="/" class="block text-white text-xl hover:text-gray-300">Home</a>
+            <a href="/icfa" class="block text-white text-xl hover:text-gray-300">ICFA</a>
+            <a href="/training" class="block text-white text-xl hover:text-gray-300">Training</a>
+            <a href="/workshops" class="block text-white text-xl hover:text-gray-300">Workshops</a>
+            <a href="/global-work" class="block text-white text-xl hover:text-gray-300">Global Work</a>
+            <a href="/contact" class="block text-white text-xl hover:text-gray-300">Contact</a>
+          </div>
+          <div class="border-t border-gray-700 pt-4 space-y-4">
+            <a href="/profile" class="block text-white text-xl hover:text-gray-300">Profile</a>
+            <a href="/productions" class="block text-white text-xl hover:text-gray-300">Productions</a>
+            <a href="/videos" class="block text-white text-xl hover:text-gray-300">Videos</a>
+            <a href="/reviews" class="block text-white text-xl hover:text-gray-300">Reviews</a>
+            <a href="/press-kit" class="block text-white text-xl hover:text-gray-300">Press Kit</a>
+          </div>
+          <div class="flex gap-4 pt-4">
+            <a href="https://www.facebook.com/Iyengar-Centre-for-FINE-ARTS-293774594468547" target="_blank" class="w-12 h-12">
+              <img src="https://res.cloudinary.com/driyengar/image/upload/v1630324119/facebook2_ggrypp.webp" alt="Facebook" loading="lazy" />
+            </a>
+            <a href="https://www.instagram.com/icfabengaluru/" target="_blank" class="w-12 h-12">
+              <img src="https://res.cloudinary.com/driyengar/image/upload/v1630324119/insta2_desu5q.webp" alt="Instagram" loading="lazy" />
+            </a>
+            <a href="https://www.youtube.com/channel/UCS54iy-nprfzdtoy_xOaHCw" target="_blank" class="w-12 h-12">
+              <img src="https://res.cloudinary.com/driyengar/image/upload/v1630324120/youtube2_tkuk2c.webp" alt="YouTube" loading="lazy" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden lg:block">
+      <div class={`navbar-desktop transition-all duration-300 ${homePage ? 'bg-transparent' : noHero ? 'bg-black' : 'bg-gradient-to-b from-black/60 to-transparent'}`}>
+        <div class="container mx-auto px-4">
+          <div class="flex items-center justify-between h-32">
+            <a href="/" class="logo-box">
+              <img
+                src="https://res.cloudinary.com/driyengar/image/upload/v1509773872/icfa_logo_sml.jpg"
+                alt="Iyengar Centre for Fine Arts logo"
+                class="w-24 h-24 transition-all duration-300"
+                id="logo-desktop"
+                loading="lazy"
+              />
+            </a>
+
+            <div class="flex items-center gap-8">
+              <div class="flex gap-6">
+                <a href="/" class="text-white hover:text-gray-300 transition-colors flex items-center gap-2">
+                  <i class="fas fa-home"></i>Home
+                </a>
+                <a href="/icfa" class="text-white hover:text-gray-300 transition-colors">ICFA</a>
+                <a href="/training" class="text-white hover:text-gray-300 transition-colors">Training</a>
+                <a href="/workshops" class="text-white hover:text-gray-300 transition-colors">Workshops</a>
+                <a href="/global-work" class="text-white hover:text-gray-300 transition-colors">Global Work</a>
+                <a href="/contact" class="text-white hover:text-gray-300 transition-colors">Contact</a>
+              </div>
+              <div class="border-l border-gray-500 pl-6 flex gap-6">
+                <a href="/profile" class="text-white hover:text-gray-300 transition-colors">Profile</a>
+                <a href="/productions" class="text-white hover:text-gray-300 transition-colors">Productions</a>
+                <a href="/videos" class="text-white hover:text-gray-300 transition-colors">Videos</a>
+                <a href="/reviews" class="text-white hover:text-gray-300 transition-colors">Reviews</a>
+                <a href="/press-kit" class="text-white hover:text-gray-300 transition-colors">Press Kit</a>
+              </div>
+              <div class="flex gap-3">
+                <a href="https://www.facebook.com/Iyengar-Centre-for-FINE-ARTS-293774594468547" target="_blank" class="w-10 h-10">
+                  <img src="https://res.cloudinary.com/driyengar/image/upload/v1630324119/facebook2_ggrypp.webp" alt="Facebook" loading="lazy" />
+                </a>
+                <a href="https://www.instagram.com/icfabengaluru/" target="_blank" class="w-10 h-10">
+                  <img src="https://res.cloudinary.com/driyengar/image/upload/v1630324119/insta2_desu5q.webp" alt="Instagram" loading="lazy" />
+                </a>
+                <a href="https://www.youtube.com/channel/UCS54iy-nprfzdtoy_xOaHCw" target="_blank" class="w-10 h-10">
+                  <img src="https://res.cloudinary.com/driyengar/image/upload/v1630324120/youtube2_tkuk2c.webp" alt="YouTube" loading="lazy" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <slot />
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="space-y-4">
+          <img
+            src="https://res.cloudinary.com/driyengar/image/upload/v1630347573/sri-sri_m8xgmi.png"
+            alt="Sri Sri Ravishankar"
+            class="w-32 mx-auto md:mx-0"
+            loading="lazy"
+          />
+          <div class="space-y-2 text-center md:text-left">
+            <div>
+              <a href="mailto:icfabengaluru@gmail.com" class="fancy-link --white">
+                <i class="far fa-envelope"></i> icfabengaluru@gmail.com
+              </a>
+            </div>
+            <div>
+              Photo Credit: <a href="https://www.instagram.com/sathvik_traits_/" class="fancy-link --white" target="_blank">
+                <i class="fab fa-instagram"></i> sathvik_traits_
+              </a>
+            </div>
+            <div>&copy;<span id="year"></span> Seshadri Iyengar, All Rights Reserved</div>
+          </div>
+        </div>
+        <div class="flex justify-center md:justify-end">
+          <img
+            src="https://res.cloudinary.com/driyengar/image/upload/v1630417726/god-panel_blytpf.webp"
+            alt="A panel of Gods"
+            class="max-w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button
+    id="scroll-to-top"
+    class="fixed bottom-8 right-8 w-14 h-14 bg-black/70 hover:bg-black text-white rounded-full flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 cursor-pointer z-40"
+    aria-label="Scroll to top"
+  >
+    <i class="fas fa-arrow-up"></i>
+    <span class="text-xs mt-1">TOP</span>
+  </button>
+
+  <script>
+    // Set current year
+    document.getElementById('year')!.textContent = new Date().getFullYear().toString();
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('translate-x-full');
+        document.body.style.overflowY = mobileMenu.classList.contains('translate-x-full') ? 'auto' : 'hidden';
+      });
+
+      // Close mobile menu when clicking a link
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('translate-x-full');
+          document.body.style.overflowY = 'auto';
+        });
+      });
+    }
+
+    // Navbar scroll behavior
+    const navbar = document.getElementById('navbar');
+    const logoMobile = document.getElementById('logo-mobile');
+    const logoDesktop = document.getElementById('logo-desktop');
+
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY > 0;
+
+      if (scrolled) {
+        navbar?.classList.add('scrolled');
+        logoMobile?.classList.remove('w-16', 'h-16');
+        logoMobile?.classList.add('w-12', 'h-12');
+        logoDesktop?.classList.remove('w-24', 'h-24');
+        logoDesktop?.classList.add('w-16', 'h-16');
+
+        const navbarMobile = navbar?.querySelector('.navbar-mobile');
+        const navbarDesktop = navbar?.querySelector('.navbar-desktop');
+        navbarMobile?.classList.add('bg-black');
+        navbarDesktop?.classList.add('bg-black');
+      } else {
+        navbar?.classList.remove('scrolled');
+        logoMobile?.classList.remove('w-12', 'h-12');
+        logoMobile?.classList.add('w-16', 'h-16');
+        logoDesktop?.classList.remove('w-16', 'h-16');
+        logoDesktop?.classList.add('w-24', 'h-24');
+      }
+    });
+
+    // Scroll to top button
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (scrollToTopBtn) {
+        if (window.scrollY > 300) {
+          scrollToTopBtn.style.opacity = '1';
+        } else {
+          scrollToTopBtn.style.opacity = '0';
+        }
+      }
+    });
+
+    scrollToTopBtn?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Prevent image download
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('contextmenu', (e) => e.preventDefault());
+    });
+  </script>
+</body>
+</html>
