@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroFixed from '../components/HeroFixed.astro';
+import EmblaCarousel from '../components/EmblaCarousel.astro';
+
+const studentSlides = [
+  {
+    image: 'https://res.cloudinary.com/driyengar/image/upload/v1631222798/ICFA_STUDENTS_31_ws04bc.jpg',
+    imageWebp: 'https://res.cloudinary.com/driyengar/image/upload/v1630465085/ICFA_STUDENTS_31_krncdq.webp',
+    alt: 'ICFA Students'
+  },
+  {
+    image: 'https://res.cloudinary.com/driyengar/image/upload/v1631222798/ICFA_STUDENTS_2_duhgt4.jpg',
+    imageWebp: 'https://res.cloudinary.com/driyengar/image/upload/v1630465085/ICFA_STUDENTS_2_uy5u5g.webp',
+    alt: 'ICFA Students'
+  },
+  {
+    image: 'https://res.cloudinary.com/driyengar/image/upload/v1631222798/STUDENTS_4_qewxbg.jpg',
+    imageWebp: 'https://res.cloudinary.com/driyengar/image/upload/v1630465085/STUDENTS_4_dx0pkf.webp',
+    alt: 'ICFA Students'
+  },
+  {
+    image: 'https://res.cloudinary.com/driyengar/image/upload/v1631222799/STUDENTS_2_uygq5v.jpg',
+    imageWebp: 'https://res.cloudinary.com/driyengar/image/upload/v1630465085/STUDENTS_2_kbu9at.webp',
+    alt: 'ICFA Students'
+  }
+];
+---
+
+<BaseLayout title="Training | Seshadri Iyengar">
+  <HeroFixed
+    text="Training at ICFA"
+    heroDeskWebp="url('https://res.cloudinary.com/driyengar/image/upload/v1629173512/BANNER-IMAGE-TRAINING_desk_alwma3.webp')"
+    heroTabWebp="url('https://res.cloudinary.com/driyengar/image/upload/v1629173512/BANNER-IMAGE-TRAINING_ipad_dnrxkw.webp')"
+    heroMobWebp="url('https://res.cloudinary.com/driyengar/image/upload/v1629173511/BANNER-IMAGE-TRAINING_mob_xtc5rx.webp')"
+    heroDesk="url('https://res.cloudinary.com/driyengar/image/upload/v1631218410/BANNER-IMAGE-TRAINING_desk_sxoodk.png')"
+    heroTab="url('https://res.cloudinary.com/driyengar/image/upload/v1631218410/BANNER-IMAGE-TRAINING_ipad_ygfxap.png')"
+    heroMob="url('https://res.cloudinary.com/driyengar/image/upload/v1631218411/BANNER-IMAGE-TRAINING_mob_l9zypy.png')"
+  />
+
+  <div class="bg-white py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-lg leading-relaxed mb-8">
+          On-going classes are held in <strong>Bharatnatyam, Yoga, Body Kinetics</strong> at ICFA.
+        </p>
+
+        <ul class="space-y-8 mb-16">
+          <li>
+            <div class="space-y-4">
+              <div>
+                <h3 class="text-2xl font-vidaloka mb-2">Classical Dance Training</h3>
+                <p class="text-lg leading-relaxed">
+                  ICFA imparts intensive dance training in <strong>Bharatnatyam</strong>. Batches are held for the Beginner and the Advanced levels on <strong>Tuesdays and Thursdays - 5.00pm onwards.</strong>
+                </p>
+              </div>
+              <div>
+                <h3 class="text-2xl font-vidaloka mb-2">Holistic Approach</h3>
+                <p class="text-lg leading-relaxed">
+                  Introduction to the technique and grammar in dance, Yoga asana - awareness towards the body, breathing. Discussions on various aspects related to stage craft such as, costume, lighting, marketing, storytelling, etc. are taught to the students as part of the curriculum. He believes Nutrition and Lifestyle play a huge role and guides in customising them for individuals.
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <h3 class="text-2xl font-vidaloka mb-2">Yoga training</h3>
+            <p class="text-lg leading-relaxed">
+              Classes for adults and children. In conjunction with the <strong>yoga asana</strong>, emphasis is given to understanding ones physical body, and the practice of <strong>Pranayama and Meditation</strong>.
+            </p>
+          </li>
+
+          <li>
+            <h3 class="text-2xl font-vidaloka mb-2">Private classes</h3>
+            <p class="text-lg leading-relaxed">
+              One on one lessons are offered for those interested.
+            </p>
+          </li>
+        </ul>
+
+        <h1 class="text-4xl font-vidaloka mb-8">Body Kinetics</h1>
+
+        <div class="space-y-6 mb-8">
+          <p class="text-lg leading-relaxed">
+            A Brain child of Dr.Iyengar is a fitness module designed keeping in mind the requirements of a dancer for seamless and able execution. A module carefully designed, imparts an in-depth understanding of the physical body, the mind and the breath. The training is intensive and can be learnt through a workshop or as part of the regular curriculum. In addition he believes Nutrition and Lifestyle play a huge role and guides in customising them for individuals.
+          </p>
+
+          <p class="text-lg leading-relaxed">
+            He is very confident of its benefits and wants to popularise it amongst serious dance practitioners. He encourages them to learn, practice and reap the benefit that nurtures the body, mind, breathe and self. <strong>The aim is to bring about a connection between the technique (the dance form) and the medium (the dancer).</strong>
+          </p>
+
+          <p class="text-lg leading-relaxed">
+            Queries? Write to <a href="mailto:icfabengaluru@gmail.com" class="fancy-link underline">icfabengaluru@gmail.com</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-16">
+        <h2 class="text-3xl font-vidaloka text-center mb-8">ICFA Students</h2>
+        <EmblaCarousel slides={studentSlides} autoplay={true} delay={4000} containImages={true} />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
