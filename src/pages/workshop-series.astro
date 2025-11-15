@@ -1,0 +1,313 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EmblaCarousel from '../components/EmblaCarousel.astro';
+
+// Kanaka Srinivasan Workshop
+const kanakaSlides = [
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629801623/kanaka-flyer_noh1zi.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631257453/kanaka-flyer_wqqbeo.jpg',
+    alt: 'Workshop Series: Padmashree Smt. Kanaka Srinivasan Flyer',
+    caption: 'Workshop Series: Padmashree Smt. Kanaka Srinivasan'
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629801623/IMG_3262_jynqad.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631257453/IMG_3262_pqt5dp.jpg',
+    alt: 'Performance by students of Smt. Kanaka Srinivasan',
+    caption: 'Performance by students of Smt. Kanaka Srinivasan'
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629801623/IMG_3381_nz43te.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631257453/IMG_3381_hz4fim.jpg',
+    alt: 'Performance by students of Smt. Kanaka Srinivasan',
+    caption: 'Performance by students of Smt. Kanaka Srinivasan'
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629801623/IMG_3464_h6juz9.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631257453/IMG_3464_pirhzf.jpg',
+    alt: 'Group photo of Smt. Kanaka Srinivasan with her students',
+    caption: 'Group photo of Smt. Kanaka Srinivasan with her students'
+  }
+];
+
+// VAK Ranga Rao Workshop
+const vakSlides = [
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629802193/WORKSHOP_VAK_2_jxdftz.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631257696/WORKSHOP_VAK_2_davtfu.jpg',
+    alt: 'Workshop on understanding Javalis and Padams with VAK Ranga Rao Flyer',
+    caption: 'Workshop on understanding Javalis and Padams with VAK Ranga Rao'
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629802193/WORKSHOP_VAK_3_xgwqiq.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631257696/WORKSHOP_VAK_3_cz5r4u.jpg',
+    alt: 'Lecture by VAK Ranga Rao',
+    caption: 'Lecture by VAK Ranga Rao'
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629802193/WORKSHOP_VAK_1_byyjpu.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631257696/WORKSHOP_VAK_1_sgrurq.jpg',
+    alt: 'Group Photo with VAK Ranga Rao',
+    caption: 'Group Photo with VAK Ranga Rao'
+  }
+];
+
+// Usha Datar Workshop
+const ushaSlides = [
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629802524/USHA_DATAR_flier_s6o8fe.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631257890/USHA_DATAR_flier_vxxibh.jpg',
+    alt: 'Workshop on experiencing nuances of Mohiniattam with Guru Kalamandalam Usha Datar Flyer',
+    caption: 'Workshop on experiencing nuances of Mohiniattam with Guru Kalamandalam Usha Datar'
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629802524/WORKSHOP_USHA_DATAR_1_wuka8b.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631257890/WORKSHOP_USHA_DATAR_1_jkoiwg.jpg',
+    alt: 'Demonstration by Guru Usha Datar',
+    caption: 'Demonstration by Guru Usha Datar'
+  }
+];
+
+// Bharat Gupt Workshop
+const bharatSlides = [
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629802792/bharat_gupt_FLIER_spcmx8.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631258037/bharat_gupt_FLIER_wgpn5d.jpg',
+    alt: "Workshop and Lectures on Bhartrihari's Shringara Shatakam, Niti Shatakam and Vairâgya Shatakam by Prof. Bharat Gupt Flyer",
+    caption: "Workshop and Lectures on Bhartrihari's Shringara Shatakam, Niti Shatakam and Vairâgya Shatakam by Prof. Bharat Gupt"
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629802792/WORKSHOP_BHARAT_GUPT_2_qxoqws.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631258037/WORKSHOP_BHARAT_GUPT_2_vtjosu.jpg',
+    alt: 'Lecture by Prof. Bharat Gupt',
+    caption: 'Lecture by Prof. Bharat Gupt'
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629802793/WORKSHOP_BHARAT_GUPT_3_laxznt.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631258038/WORKSHOP_BHARAT_GUPT_3_bfg99s.jpg',
+    alt: 'Group photo with Prof. Bharat Gupt',
+    caption: 'Group photo with Prof. Bharat Gupt'
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629802793/WORKSHOP_BHARAT_GUPT_4_erxoku.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631258038/WORKSHOP_BHARAT_GUPT_4_a0m4ad.jpg',
+    alt: 'Group photo with Prof. Bharat Gupt',
+    caption: 'Group photo with Prof. Bharat Gupt'
+  }
+];
+
+// MS Sathyu Workshop
+const sathyuSlides = [
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629803259/WORKSHOP_M_S_SATHYU_2_ysdiql.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631258266/WORKSHOP_M_S_SATHYU_2_majh4u.jpg',
+    alt: 'Workshop on Presentation, Lighting, Stage Craft and Characterisation in dance by MS Sathyu Flyer',
+    caption: 'Workshop on Presentation, Lighting, Stage Craft and Characterisation in dance by MS Sathyu'
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629803259/WORKSHOP_M_S_SATHYU_1_w4c6rx.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631258266/WORKSHOP_M_S_SATHYU_1_bm8q5t.jpg',
+    alt: 'Lecture by MS Sathyu',
+    caption: 'Lecture by MS Sathyu'
+  }
+];
+
+// Rama Vaidyanathan Workshop
+const ramaSlides = [
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629803559/rama-flyer_rqqaec.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631258446/rama-flyer_ec1d4i.jpg',
+    alt: 'Workshop with Rama Vaidyanathan Flyer',
+    caption: 'Workshop with Rama Vaidyanathan'
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629803559/RAMA_VAIDYANATHAN_WORKSHOP_2_ijpd30.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631258445/RAMA_VAIDYANATHAN_WORKSHOP_2_z1uvxc.jpg',
+    alt: 'Lecture by Rama Vaidyanathan',
+    caption: 'Lecture by Rama Vaidyanathan'
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629803558/RAMA_VAIDYANATHAN_WORKSHOP_1_thdq6o.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631258445/RAMA_VAIDYANATHAN_WORKSHOP_1_bwqvwt.jpg',
+    alt: 'Audience at the workshop by Rama Vaidyanathan',
+    caption: 'Audience at the workshop by Rama Vaidyanathan'
+  }
+];
+
+// S Jayachandran Workshop
+const jayachandranSlides = [
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629803900/jayachandra-flyer_du8yq6.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631258793/jayachandra-flyer_ruml1h.jpg',
+    alt: 'Workshop with Shri S. Jayachandran',
+    caption: 'Workshop with Shri S. Jayachandran'
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629803900/White_Craft_Workshop_Instagram_Post1_ibnldu.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631258794/White_Craft_Workshop_Instagram_Post1_grilli.png',
+    alt: 'Lecture by Shri S. Jayachandran',
+    caption: 'Lecture by Shri S. Jayachandran'
+  },
+  {
+    webp: 'https://res.cloudinary.com/driyengar/image/upload/v1629803900/White_Craft_Workshop_Instagram_Post2_vhzoxk.webp',
+    jpg: 'https://res.cloudinary.com/driyengar/image/upload/v1631258794/White_Craft_Workshop_Instagram_Post2_k1daht.png',
+    alt: 'Audience at the workshop by Shri S. Jayachandran',
+    caption: 'Audience at the workshop by Shri S. Jayachandran'
+  }
+];
+---
+
+<BaseLayout title="Workshop Series | Seshadri Iyengar">
+  <!-- Introduction Section -->
+  <div class="bg-white py-16 lg:py-24 transform -skew-y-2 origin-bottom-left">
+    <div class="container mx-auto px-4 transform skew-y-2">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl lg:text-5xl font-vidaloka font-bold text-center mb-12">
+          Workshop Series
+        </h1>
+        
+        <div class="space-y-6 text-lg leading-relaxed">
+          <p>
+            ICFA strongly believes in offering workshops which are Process oriented
+            and not Product driven. Topics are rolled out keeping both the trend and
+            tradition in mind. Scholars, learned and the experienced in the field are
+            invited to share their expertise with the curious minds.
+          </p>
+          
+          <p>
+            Workshops are usually spread over a few days (mostly weekends) and are day
+            long most commonly between 10am to 5pm. Lecture demonstrations, films
+            screening, practical exposure etc, are encapsulated in the curriculum.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Workshops -->
+  <div class="bg-gray-100 py-16 lg:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto space-y-16">
+        <!-- Jayaprabha Menon Workshop -->
+        <div>
+          <h2 class="text-3xl font-vidaloka font-bold text-center mb-8">
+            Abhinaya Workshop with Jayaprabha Menon, Mohiniattam Exponent
+          </h2>
+          <div class="rounded-lg overflow-hidden shadow-lg max-w-2xl mx-auto">
+            <picture>
+              <source 
+                srcset="https://res.cloudinary.com/driyengar/image/upload/v1707291178/jayaprapha-menon-workshop-june-2023_rnyqxh.webp" 
+                type="image/webp"
+              />
+              <source 
+                srcset="https://res.cloudinary.com/driyengar/image/upload/v1707291178/jayaprapha-menon-workshop-june-2023_yzjiow.jpg" 
+                type="image/jpeg"
+              />
+              <img 
+                src="https://res.cloudinary.com/driyengar/image/upload/v1707291178/jayaprapha-menon-workshop-june-2023_rnyqxh.webp" 
+                alt="Abhinaya Workshop with Jayaprabha Menon, Flyer" 
+                loading="lazy"
+                class="w-full"
+              />
+            </picture>
+          </div>
+        </div>
+
+        <!-- Anupama Kylash Workshop -->
+        <div>
+          <h2 class="text-3xl font-vidaloka font-bold text-center mb-8">
+            Workshop with Dr Anupama Kylash, Abhinaya Possibilities in Hindi Literature
+          </h2>
+          <div class="rounded-lg overflow-hidden shadow-lg max-w-2xl mx-auto">
+            <picture>
+              <source 
+                srcset="https://res.cloudinary.com/driyengar/image/upload/v1676883341/anupama-kylash-workshop-series_bcezey.webp" 
+                type="image/webp"
+              />
+              <source 
+                srcset="https://res.cloudinary.com/driyengar/image/upload/v1676882284/anupama-kylash-workshop-series_yefnfw.jpg" 
+                type="image/jpeg"
+              />
+              <img 
+                src="https://res.cloudinary.com/driyengar/image/upload/v1676883341/anupama-kylash-workshop-series_bcezey.webp" 
+                alt="Workshop with Dr Anupama Kylash, Flyer" 
+                loading="lazy"
+                class="w-full"
+              />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Past Workshops with Carousels -->
+  <div class="bg-white py-16 lg:py-24">
+    <div class="container mx-auto px-4">
+      <!-- Kanaka Srinivasan Workshop -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-vidaloka font-bold text-center mb-8">
+          Workshop with Padmashree Smt. Kanaka Srinivasan
+        </h2>
+        <EmblaCarousel slides={kanakaSlides} contain={true} showCaptions={true} />
+      </div>
+
+      <!-- VAK Ranga Rao Workshop -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-vidaloka font-bold text-center mb-8">
+          Workshop on understanding Javalis and Padams with VAK Ranga Rao
+        </h2>
+        <EmblaCarousel slides={vakSlides} contain={true} showCaptions={true} />
+      </div>
+
+      <!-- Usha Datar Workshop -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-vidaloka font-bold text-center mb-8">
+          Workshop on experiencing nuances of Mohiniattam with Guru Kalamandalam Usha Datar
+        </h2>
+        <EmblaCarousel slides={ushaSlides} contain={true} showCaptions={true} />
+      </div>
+
+    <!-- Bharat Gupt Workshop -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-vidaloka font-bold text-center mb-8">
+          Workshop and Lectures on Bhartrihari's Shringara Shatakam, Niti Shatakam and Vairâgya Shatakam by Prof. Bharat Gupt
+        </h2>
+        <EmblaCarousel slides={bharatSlides} contain={true} showCaptions={true} />
+      </div>
+
+      <!-- MS Sathyu Workshop -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-vidaloka font-bold text-center mb-8">
+          Workshop on Presentation, Lighting, Stage Craft and Characterisation in dance by MS Sathyu
+        </h2>
+        <EmblaCarousel slides={sathyuSlides} contain={true} showCaptions={true} />
+      </div>
+
+      <!-- Rama Vaidyanathan Workshop -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-vidaloka font-bold text-center mb-8">
+          Workshop with Rama Vaidyanathan
+        </h2>
+        <EmblaCarousel slides={ramaSlides} contain={true} showCaptions={true} />
+      </div>
+
+      <!-- S Jayachandran Workshop -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-vidaloka font-bold text-center mb-8">
+          Workshop with Shri S. Jayachandran
+        </h2>
+        <EmblaCarousel slides={jayachandranSlides} contain={true} showCaptions={true} />
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to ICFA Link -->
+  <div class="bg-gray-100 py-8">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/icfa" class="fancy-link text-xl font-bold inline-block">
+        Back to ICFA
+      </a>
+    </div>
+  </div>
+</BaseLayout>
